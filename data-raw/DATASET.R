@@ -6,28 +6,32 @@ library(stringr)
 
 source("R/intl.R")
 
-unzip("inst/extdata/qualification_round_2021.in.zip", exdir = "inst/extdata/qualification_round_2021")
-legacy_part_a <- "inst/extdata/qualification_round_2021/a.txt" %>%
+part_a <- "inst/extdata/qualification_round_2022/a_an_example.in.txt" %>%
+        intl_input_parser()
+part_b <- "inst/extdata/qualification_round_2022/b_better_start_small.in.txt" %>%
+        intl_input_parser()
+part_c <- "inst/extdata/qualification_round_2022/c_collaboration.in.txt" %>%
+        intl_input_parser()
+part_d <- "inst/extdata/qualification_round_2022/d_" %>%
+        intl_input_parser()
+part_e <- "inst/extdata/qualification_round_2022/e_exceptional_skills.in.txt" %>%
+        intl_input_parser()
+part_f <- "inst/extdata/qualification_round_2022/f_find_great_mentors.in.txt" %>%
         intl_input_parser()
 
-legacy_part_b <- "inst/extdata/qualification_round_2021/b.txt" %>%
-        intl_input_parser()
+usethis::use_data(part_a, overwrite = TRUE)
+usethis::use_data(part_b, overwrite = TRUE)
+usethis::use_data(part_c, overwrite = TRUE)
+usethis::use_data(part_d, overwrite = TRUE)
+usethis::use_data(part_e, overwrite = TRUE)
+usethis::use_data(part_f, overwrite = TRUE)
 
-legacy_part_c <- "inst/extdata/qualification_round_2021/c.txt" %>%
-        intl_input_parser()
 
-legacy_part_d <- "inst/extdata/qualification_round_2021/d.txt" %>%
-        intl_input_parser()
+source("R/matching.R")
 
-legacy_part_e <- "inst/extdata/qualification_round_2021/e.txt" %>%
-        intl_input_parser()
+part_c_solution <- part_c %>%
+        project_manager()
 
-legacy_part_f <- "inst/extdata/qualification_round_2021/f.txt" %>%
-        intl_input_parser()
 
-usethis::use_data(legacy_part_a, overwrite = TRUE)
-usethis::use_data(legacy_part_b, overwrite = TRUE)
-usethis::use_data(legacy_part_c, overwrite = TRUE)
-usethis::use_data(legacy_part_d, overwrite = TRUE)
-usethis::use_data(legacy_part_e, overwrite = TRUE)
-usethis::use_data(legacy_part_f, overwrite = TRUE)
+usethis::use_data(part_c_solution, overwrite = TRUE)
+
