@@ -1,6 +1,3 @@
-library(purrr)
-library(dplyr)
-library(tidyr)
 
 
 
